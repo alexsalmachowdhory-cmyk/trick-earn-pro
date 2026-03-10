@@ -653,21 +653,28 @@
   </div>
 
   <script>
-    const tg = window.Telegram?.WebApp;
-    if (tg) {
-      tg.expand();
-      tg.ready();
-    }
+     const tg = window.Telegram.WebApp;
 
-    const BOT_USERNAME = "TrickEarnProBot";
-    const CHANNEL_LINK = "https://t.me/TrickEarnAds";
-    const YOUTUBE_LINK = "https://youtube.com/@trickzoneboostcenter1?si=_kf6wZsmfu_lGe7r";
-    const AD_LINK = "https://parasiteoutdoorsmix.com/e2wzwnpyej?key=f4a114d4afea16c4ef57e11b1f0a9408";
+const AD_LINK = "https://parasiteoutdoorsmix.com/e2wzwnpyej?key=f4a114d4afea16c4ef57e11b1f0a9408";
 
-    const WATCH_AD_LINKS = Array(10).fill(AD_LINK);
-    const BONUS_LINKS = Array(9).fill(AD_LINK);
-    const PREMIUM_LINKS = Array(10).fill(AD_LINK);
+function openAd() {
+  window.open(AD_LINK, "_blank");
+}
 
+const WATCH_AD_LINKS = Array(10).fill(AD_LINK);
+const BONUS_LINKS = Array(9).fill(AD_LINK);
+const PREMIUM_LINKS = Array(10).fill(AD_LINK);
+
+if (tg) {
+  tg.expand();
+  tg.ready();
+}
+
+const BOT_USERNAME = "TrickEarnProBot";
+const CHANNEL_LINK = "https://t.me/TrickEarnAds";
+const YOUTUBE_LINK = "https://youtube.com/@trickzoneboostcenter1";
+
+  
     let currentUserId = "123456";
     let currentUserName = "User";
     let currentUserPhoto = "https://i.pravatar.cc/100?img=12";
