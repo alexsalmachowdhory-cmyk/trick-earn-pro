@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Meta Pro</title>
+  <title>Trick Earn Pro</title>
   <script src="https://telegram.org/js/telegram-web-app.js"></script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -15,7 +15,6 @@
       box-sizing:border-box;
       -webkit-tap-highlight-color:transparent;
     }
-
     :root{
       --bg:#f3f4f7;
       --card:#ffffff;
@@ -27,7 +26,6 @@
       --border:#e9edf3;
       --shadow:0 12px 28px rgba(35,55,80,.08);
     }
-
     body{
       font-family:'Inter',sans-serif;
       background:var(--bg);
@@ -37,18 +35,15 @@
       min-height:100vh;
       padding-bottom:92px;
     }
-
     .app{
       padding:18px 16px 0;
     }
-
     .topbar{
       display:flex;
       align-items:flex-start;
       gap:12px;
       margin-bottom:18px;
     }
-
     .avatar{
       width:54px;
       height:54px;
@@ -59,13 +54,11 @@
       border:3px solid #fff;
       box-shadow:var(--shadow);
     }
-
     .avatar img{
       width:100%;
       height:100%;
       object-fit:cover;
     }
-
     .welcome h2{
       font-size:18px;
       font-weight:800;
@@ -73,7 +66,6 @@
       margin-bottom:0;
       word-break:break-word;
     }
-
     .balance-card{
       position:relative;
       overflow:hidden;
@@ -88,7 +80,6 @@
       flex-direction:column;
       justify-content:center;
     }
-
     .balance-card::before,
     .balance-card::after{
       content:"";
@@ -96,21 +87,18 @@
       border-radius:50%;
       background:rgba(255,255,255,.12);
     }
-
     .balance-card::before{
       width:200px;
       height:200px;
       right:-90px;
       top:8px;
     }
-
     .balance-card::after{
       width:120px;
       height:120px;
       right:22px;
       bottom:-28px;
     }
-
     .balance-label{
       font-size:16px;
       font-weight:500;
@@ -119,7 +107,6 @@
       z-index:1;
       opacity:.95;
     }
-
     .balance-amount{
       font-size:62px;
       line-height:1;
@@ -128,14 +115,12 @@
       text-align:center;
       z-index:1;
     }
-
     .stats{
       display:grid;
       grid-template-columns:repeat(3,1fr);
       gap:12px;
       margin-bottom:18px;
     }
-
     .stat-card{
       background:var(--card);
       border-radius:26px;
@@ -148,7 +133,6 @@
       flex-direction:column;
       justify-content:center;
     }
-
     .stat-icon{
       width:44px;
       height:44px;
@@ -162,13 +146,11 @@
       font-size:16px;
       font-weight:800;
     }
-
     .stat-value{
       font-size:18px;
       font-weight:800;
       margin-bottom:6px;
     }
-
     .stat-label{
       font-size:12px;
       color:var(--muted);
@@ -177,7 +159,6 @@
       text-transform:uppercase;
       line-height:1.25;
     }
-
     .task-card{
       background:var(--card);
       border-radius:30px;
@@ -186,13 +167,11 @@
       border:1px solid var(--border);
       margin-bottom:18px;
     }
-
     .section-title{
       font-size:18px;
       font-weight:800;
       margin-bottom:18px;
     }
-
     .watch-btn{
       width:100%;
       border:none;
@@ -205,7 +184,6 @@
       margin-bottom:14px;
       cursor:pointer;
     }
-
     .join-btn{
       width:100%;
       border:3px solid var(--blue3);
@@ -221,7 +199,6 @@
       justify-content:center;
       gap:10px;
     }
-
     .bottom-nav{
       position:fixed;
       left:50%;
@@ -237,7 +214,6 @@
       padding:10px 6px 12px;
       z-index:60;
     }
-
     .nav-item{
       border:none;
       background:transparent;
@@ -253,16 +229,13 @@
       padding:6px 2px;
       border-radius:14px;
     }
-
     .nav-item .icon{
       font-size:22px;
       line-height:1;
     }
-
     .nav-item.active{
       color:var(--blue3);
     }
-
     .modal-overlay{
       position:fixed;
       inset:0;
@@ -272,11 +245,9 @@
       justify-content:center;
       z-index:200;
     }
-
     .modal-overlay.show{
       display:flex;
     }
-
     .sheet{
       width:100%;
       max-width:480px;
@@ -289,12 +260,10 @@
       box-shadow:0 -12px 34px rgba(0,0,0,.18);
       animation:slideUp .22s ease;
     }
-
     @keyframes slideUp{
       from{transform:translateY(35px);opacity:.7}
       to{transform:translateY(0);opacity:1}
     }
-
     .sheet-header{
       display:flex;
       justify-content:space-between;
@@ -302,19 +271,16 @@
       gap:12px;
       margin-bottom:18px;
     }
-
     .sheet-title{
       font-size:18px;
       font-weight:800;
       margin-bottom:8px;
     }
-
     .sheet-sub{
       color:#474d57;
       font-size:15px;
       line-height:1.5;
     }
-
     .sheet-close{
       border:none;
       background:transparent;
@@ -324,7 +290,6 @@
       cursor:pointer;
       flex-shrink:0;
     }
-
     .task-item{
       background:#f7f8fb;
       border:1px solid #eceef4;
@@ -336,24 +301,22 @@
       justify-content:space-between;
       gap:12px;
     }
-
     .task-left h4{
       font-size:17px;
       font-weight:800;
       margin-bottom:8px;
     }
-
     .task-left p{
       color:var(--blue3);
       font-size:14px;
       font-weight:800;
     }
-
     .claim-btn,
     .start-btn,
     .submit-btn,
     .copy-btn,
-    .share-btn{
+    .share-btn,
+    .watch-now-btn{
       border:none;
       background:linear-gradient(135deg,var(--blue1),var(--blue2));
       color:#fff;
@@ -363,7 +326,6 @@
       border-radius:18px;
       cursor:pointer;
     }
-
     .premium-card{
       background:#fff;
       border:1px solid #e9edf2;
@@ -371,7 +333,6 @@
       padding:18px 16px;
       margin-bottom:16px;
     }
-
     .premium-top{
       display:flex;
       justify-content:space-between;
@@ -379,20 +340,17 @@
       gap:12px;
       margin-bottom:14px;
     }
-
     .premium-top h4{
       font-size:17px;
       font-weight:800;
       line-height:1.3;
     }
-
     .premium-reward{
       color:var(--blue3);
       font-size:14px;
       font-weight:800;
       margin-top:10px;
     }
-
     .code-input,
     .withdraw-input{
       width:100%;
@@ -405,26 +363,22 @@
       color:#222;
       margin-bottom:12px;
     }
-
     .invite-box p{
       color:#40464f;
       font-size:15px;
       line-height:1.55;
       margin-bottom:18px;
     }
-
     .copy-btn,.share-btn{
       width:100%;
       margin-bottom:12px;
       font-size:17px;
     }
-
     .share-btn{
       background:#fff;
       color:var(--blue3);
       border:3px solid var(--blue3);
     }
-
     .ref-note{
       font-size:13px;
       color:#667085;
@@ -432,7 +386,6 @@
       word-break:break-all;
       margin-top:6px;
     }
-
     .withdraw-note{
       font-size:15px;
       color:#444;
@@ -440,21 +393,18 @@
       margin-bottom:6px;
       font-weight:500;
     }
-
     .withdraw-sub{
       color:#1d8fff;
       font-size:14px;
       font-weight:700;
       margin-bottom:18px;
     }
-
     .method-grid{
       display:grid;
       grid-template-columns:repeat(4,1fr);
       gap:12px;
       margin-bottom:18px;
     }
-
     .method-card{
       border:2px solid #e7ebf2;
       background:#f7f8fb;
@@ -463,25 +413,21 @@
       text-align:center;
       cursor:pointer;
     }
-
     .method-card.active{
       border-color:var(--blue3);
       background:#eef7ff;
     }
-
     .method-card img{
       width:40px;
       height:40px;
       object-fit:contain;
       margin-bottom:8px;
     }
-
     .method-card .min{
       font-size:12px;
       font-weight:700;
       color:var(--blue3);
     }
-
     .warn-box{
       background:#fff4f4;
       border:1px solid #ffd4d4;
@@ -493,14 +439,45 @@
       margin-bottom:14px;
       display:none;
     }
-
     .submit-full{
       width:100%;
       padding:18px 16px;
       font-size:18px;
       border-radius:18px;
     }
-
+    .watch-ad-box{
+      background:#f7f8fb;
+      border:1px solid #eceef4;
+      border-radius:24px;
+      padding:18px;
+    }
+    .watch-progress{
+      font-size:18px;
+      font-weight:800;
+      margin-bottom:10px;
+    }
+    .watch-note{
+      font-size:15px;
+      color:#5c6470;
+      margin-bottom:12px;
+      line-height:1.5;
+    }
+    .watch-status{
+      font-size:15px;
+      font-weight:800;
+      color:var(--blue3);
+      margin-bottom:12px;
+    }
+    .watch-actions{
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:10px;
+    }
+    .watch-claim{
+      background:#fff;
+      color:var(--blue3);
+      border:3px solid var(--blue3);
+    }
     @media (max-width:360px){
       .balance-amount{font-size:48px}
       .method-grid{grid-template-columns:repeat(2,1fr)}
@@ -573,6 +550,29 @@
     </button>
   </div>
 
+  <div class="modal-overlay" id="watchAdsModal">
+    <div class="sheet">
+      <div class="sheet-header">
+        <div>
+          <div class="sheet-title">Watch Ads</div>
+          <div class="sheet-sub">Complete 10 ads daily to earn rewards.</div>
+        </div>
+        <button class="sheet-close" data-close="watchAdsModal">&times;</button>
+      </div>
+
+      <div class="watch-ad-box">
+        <div class="watch-progress" id="watchProgressText">Completed: 0 / 10</div>
+        <div class="watch-note">Click Watch Now to open ad. Return and press Claim Reward.</div>
+        <div class="watch-status" id="watchStatusText">Complete 10 ads to finish today.</div>
+
+        <div class="watch-actions">
+          <button class="watch-now-btn" id="watchNowBtn">Watch Now</button>
+          <button class="watch-now-btn watch-claim" id="claimWatchBtn">Claim Reward</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
   <div class="modal-overlay" id="dailyTaskModal">
     <div class="sheet">
       <div class="sheet-header">
@@ -582,46 +582,7 @@
         </div>
         <button class="sheet-close" data-close="dailyTaskModal">&times;</button>
       </div>
-
-      <div class="task-item">
-        <div class="task-left">
-          <h4>Visit website 30 sec</h4>
-          <p>+ $0.1</p>
-        </div>
-        <button class="claim-btn">Claim</button>
-      </div>
-
-      <div class="task-item">
-        <div class="task-left">
-          <h4>Visit website 30 sec</h4>
-          <p>+ $0.1</p>
-        </div>
-        <button class="claim-btn">Claim</button>
-      </div>
-
-      <div class="task-item">
-        <div class="task-left">
-          <h4>Visit website 30 sec</h4>
-          <p>+ $0.1</p>
-        </div>
-        <button class="claim-btn">Claim</button>
-      </div>
-
-      <div class="task-item">
-        <div class="task-left">
-          <h4>Visit website 30 sec</h4>
-          <p>+ $0.1</p>
-        </div>
-        <button class="claim-btn">Claim</button>
-      </div>
-
-      <div class="task-item">
-        <div class="task-left">
-          <h4>Visit website 30 sec</h4>
-          <p>+ $0.1</p>
-        </div>
-        <button class="claim-btn">Claim</button>
-      </div>
+      <div id="bonusTasksWrap"></div>
     </div>
   </div>
 
@@ -631,42 +592,7 @@
         <div class="sheet-title">Premium Tasks</div>
         <button class="sheet-close" data-close="webTaskModal">&times;</button>
       </div>
-
-      <div class="premium-card">
-        <div class="premium-top">
-          <div>
-            <h4>Visit Website and find code</h4>
-            <div class="premium-reward">+$0.1</div>
-          </div>
-          <button class="start-btn">Start</button>
-        </div>
-        <input class="code-input" placeholder="Enter Secret Code">
-        <button class="submit-btn submit-full">Submit</button>
-      </div>
-
-      <div class="premium-card">
-        <div class="premium-top">
-          <div>
-            <h4>Visit Website and find code</h4>
-            <div class="premium-reward">+$0.1</div>
-          </div>
-          <button class="start-btn">Start</button>
-        </div>
-        <input class="code-input" placeholder="Enter Secret Code">
-        <button class="submit-btn submit-full">Submit</button>
-      </div>
-
-      <div class="premium-card">
-        <div class="premium-top">
-          <div>
-            <h4>Visit Website and find hidden code</h4>
-            <div class="premium-reward">+$0.1</div>
-          </div>
-          <button class="start-btn">Start</button>
-        </div>
-        <input class="code-input" placeholder="Enter Secret Code">
-        <button class="submit-btn submit-full">Submit</button>
-      </div>
+      <div id="premiumTasksWrap"></div>
     </div>
   </div>
 
@@ -676,13 +602,8 @@
         <div class="sheet-title">Invite Friends</div>
         <button class="sheet-close" data-close="inviteModal">&times;</button>
       </div>
-
       <div class="invite-box">
-        <p>
-          Share your referral link with your friends and earn together.
-          You will get $0.2 reward for each successful referral.
-        </p>
-
+        <p>Share your referral link with your friends and earn together. You will get $0.2 reward for each successful referral.</p>
         <button class="copy-btn" id="copyLinkBtn">Copy Link</button>
         <button class="share-btn" id="shareLinkBtn">Share Link</button>
         <div class="ref-note" id="refLinkText"></div>
@@ -701,32 +622,31 @@
 
       <div class="withdraw-note">Minimum withdrawal is $4.00.</div>
       <div class="withdraw-sub">Payment time : 2-24 hr</div>
-
       <div class="warn-box" id="withdrawWarn">You need 15 referrals to withdraw.</div>
 
       <div class="method-grid">
-        <div class="method-card active" data-method="Rocket">
-          <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/84/Rocket_Digital_Bank_logo.svg/512px-Rocket_Digital_Bank_logo.svg.png" alt="Rocket">
+        <div class="method-card active" data-method="bKash">
+          <img src="https://alexsalmachowdhory-cmyk.github.io/trick-earn-pro/bkash.png" alt="bKash">
           <div class="min">Min: $4</div>
         </div>
 
         <div class="method-card" data-method="Binance">
-          <img src="https://cryptologos.cc/logos/binance-coin-bnb-logo.png?v=040" alt="Binance">
+          <img src="https://alexsalmachowdhory-cmyk.github.io/trick-earn-pro/binance.png" alt="Binance">
           <div class="min">Min: $4</div>
         </div>
 
         <div class="method-card" data-method="USDT">
-          <img src="https://cryptologos.cc/logos/tether-usdt-logo.png?v=040" alt="USDT">
+          <img src="https://alexsalmachowdhory-cmyk.github.io/trick-earn-pro/usdt.png" alt="USDT">
           <div class="min">Min: $4</div>
         </div>
 
-        <div class="method-card" data-method="FaucetPay">
-          <img src="https://faucetpay.io/images/favicon.png" alt="FaucetPay">
+        <div class="method-card" data-method="WebMoney">
+          <img src="https://alexsalmachowdhory-cmyk.github.io/trick-earn-pro/webmoney.png" alt="WebMoney">
           <div class="min">Min: $4</div>
         </div>
       </div>
 
-      <input type="text" class="withdraw-input" id="withdrawAccount" placeholder="Enter Binance UID or Email">
+      <input type="text" class="withdraw-input" id="withdrawAccount" placeholder="Enter bKash Number">
       <input type="number" class="withdraw-input" id="withdrawAmount" placeholder="Amount in USD">
       <button class="submit-btn submit-full" id="submitWithdrawBtn">Submit Request</button>
     </div>
@@ -741,50 +661,24 @@
 
     const BOT_USERNAME = "TrickEarnProBot";
     const CHANNEL_LINK = "https://t.me/TrickEarnAds";
+    const YOUTUBE_LINK = "https://youtube.com/@trickzoneboostcenter1?si=_kf6wZsmfu_lGe7r";
+    const AD_LINK = "https://parasiteoutdoorsmix.com/e2wzwnpyej?key=f4a114d4afea16c4ef57e11b1f0a9408";
 
-    let userId = "123456";
-    let userName = "User";
-    let userPhoto = "https://i.pravatar.cc/100?img=12";
+    const WATCH_AD_LINKS = Array(10).fill(AD_LINK);
+    const BONUS_LINKS = Array(9).fill(AD_LINK);
+    const PREMIUM_LINKS = Array(10).fill(AD_LINK);
 
-    let balance = 0.000;
-    let adsWatched = 0;
-    let todaysAds = 0;
-    let referralCount = 0;
-
-    if (tg && tg.initDataUnsafe && tg.initDataUnsafe.user) {
-      const user = tg.initDataUnsafe.user;
-      userId = user.id ? String(user.id) : "123456";
-      userName = user.first_name || "User";
-      userPhoto = user.photo_url || userPhoto;
-
-      document.getElementById("welcomeText").textContent = `Welcome, ${userName}`;
-      document.getElementById("profilePhoto").src = userPhoto;
-    }
-
-    document.getElementById("balanceAmount").textContent = `$${balance.toFixed(3)}`;
-    document.getElementById("adsWatched").textContent = adsWatched;
-    document.getElementById("todaysAds").textContent = `${todaysAds} / 10`;
-    document.getElementById("referrals").textContent = referralCount;
-
-    const now = new Date();
-    document.getElementById("todayDate").textContent = now.getDate();
-
-    const refUrl = `https://t.me/${BOT_USERNAME}?start=ref_${userId}`;
-    document.getElementById("refLinkText").textContent = refUrl;
+    let currentUserId = "123456";
+    let currentUserName = "User";
+    let currentUserPhoto = "https://i.pravatar.cc/100?img=12";
+    let selectedMethod = "bKash";
 
     function openModal(id){
       document.getElementById(id).classList.add("show");
     }
-
     function closeModal(id){
       document.getElementById(id).classList.remove("show");
     }
-
-    document.getElementById("dailyTaskBtn").addEventListener("click", () => openModal("dailyTaskModal"));
-    document.getElementById("watchAdBtn").addEventListener("click", () => openModal("dailyTaskModal"));
-    document.getElementById("webTaskBtn").addEventListener("click", () => openModal("webTaskModal"));
-    document.getElementById("inviteBtn").addEventListener("click", () => openModal("inviteModal"));
-    document.getElementById("withdrawBtn").addEventListener("click", () => openModal("withdrawModal"));
 
     document.querySelectorAll(".sheet-close").forEach(btn => {
       btn.addEventListener("click", () => closeModal(btn.dataset.close));
@@ -796,20 +690,190 @@
       });
     });
 
+    document.getElementById("watchAdBtn").addEventListener("click", () => openModal("watchAdsModal"));
+    document.getElementById("dailyTaskBtn").addEventListener("click", () => openModal("dailyTaskModal"));
+    document.getElementById("webTaskBtn").addEventListener("click", () => openModal("webTaskModal"));
+    document.getElementById("inviteBtn").addEventListener("click", () => openModal("inviteModal"));
+    document.getElementById("withdrawBtn").addEventListener("click", () => openModal("withdrawModal"));
+
     document.getElementById("joinChannelBtn").addEventListener("click", () => {
       window.open(CHANNEL_LINK, "_blank");
     });
 
+    const now = new Date();
+    document.getElementById("todayDate").textContent = now.getDate();
+
+    const bonusWrap = document.getElementById("bonusTasksWrap");
+    let bonusHtml = "";
+    for (let i = 0; i < 9; i++) {
+      bonusHtml += `
+        <div class="task-item">
+          <div class="task-left">
+            <h4>Visit website 30 sec</h4>
+            <p>+ $0.1</p>
+          </div>
+          <button class="claim-btn bonus-open-btn" data-link="${BONUS_LINKS[i]}" data-key="bonus_${i + 1}">Claim</button>
+        </div>
+      `;
+    }
+    bonusHtml += `
+      <div class="task-item">
+        <div class="task-left">
+          <h4>Subscribe YouTube Channel</h4>
+          <p>+ $0.1</p>
+        </div>
+        <button class="claim-btn bonus-open-btn" data-link="${YOUTUBE_LINK}" data-key="bonus_10">Claim</button>
+      </div>
+    `;
+    bonusWrap.innerHTML = bonusHtml;
+
+    const premiumWrap = document.getElementById("premiumTasksWrap");
+    let premiumHtml = "";
+    for (let i = 0; i < 10; i++) {
+      premiumHtml += `
+        <div class="premium-card">
+          <div class="premium-top">
+            <div>
+              <h4>${i === 9 ? "Visit Website and find hidden code" : "Visit Website and find code"}</h4>
+              <div class="premium-reward">+$0.1</div>
+            </div>
+            <button class="start-btn premium-start-btn" data-link="${PREMIUM_LINKS[i]}">Start</button>
+          </div>
+          <input class="code-input premium-code" data-index="${i}" placeholder="Enter Secret Code">
+          <button class="submit-btn submit-full premium-submit-btn" data-index="${i}" data-key="premium_${i + 1}">Submit</button>
+        </div>
+      `;
+    }
+    premiumWrap.innerHTML = premiumHtml;
+  </script>
+
+  <script type="module">
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/12.10.0/firebase-app.js";
+    import {
+      getFirestore,
+      doc,
+      getDoc,
+      setDoc,
+      updateDoc,
+      increment,
+      collection,
+      addDoc
+    } from "https://www.gstatic.com/firebasejs/12.10.0/firebase-firestore.js";
+
+    const firebaseConfig = {
+      apiKey: "AIzaSyDZDkDv9STQedBujp_BMjvyUlv42TLnOys",
+      authDomain: "trick-earn-pro.firebaseapp.com",
+      projectId: "trick-earn-pro",
+      storageBucket: "trick-earn-pro.firebasestorage.app",
+      messagingSenderId: "453536865495",
+      appId: "1:453536865495:web:24157b265d5718b05e6492"
+    };
+
+    const app = initializeApp(firebaseConfig);
+    const db = getFirestore(app);
+
+    const tg = window.Telegram?.WebApp;
+
+    let userId = "123456";
+    let userName = "User";
+    let userPhoto = "https://i.pravatar.cc/100?img=12";
+    let balance = 0;
+    let adsWatched = 0;
+    let todayAds = 0;
+    let referrals = 0;
+    let currentAdIndex = 0;
+
+    if (tg && tg.initDataUnsafe && tg.initDataUnsafe.user) {
+      const user = tg.initDataUnsafe.user;
+      userId = String(user.id || "123456");
+      userName = user.first_name || "User";
+      userPhoto = user.photo_url || userPhoto;
+    }
+
+    currentUserId = userId;
+    currentUserName = userName;
+    currentUserPhoto = userPhoto;
+
+    const userRef = doc(db, "users", userId);
+    const userSnap = await getDoc(userRef);
+
+    if (!userSnap.exists()) {
+      await setDoc(userRef, {
+        userId,
+        name: userName,
+        photo: userPhoto,
+        balance: 0,
+        referrals: 0,
+        adsWatched: 0,
+        todayAds: 0,
+        currentAdIndex: 0,
+        completedBonusTasks: [],
+        completedPremiumTasks: [],
+        createdAt: Date.now()
+      });
+    }
+
+    async function loadUserData() {
+      const snap = await getDoc(userRef);
+      const data = snap.data();
+
+      balance = Number(data.balance || 0);
+      referrals = Number(data.referrals || 0);
+      adsWatched = Number(data.adsWatched || 0);
+      todayAds = Number(data.todayAds || 0);
+      currentAdIndex = Number(data.currentAdIndex || 0);
+
+      document.getElementById("welcomeText").textContent = `Welcome, ${userName}`;
+      document.getElementById("profilePhoto").src = userPhoto;
+      document.getElementById("balanceAmount").textContent = `$${balance.toFixed(3)}`;
+      document.getElementById("adsWatched").textContent = adsWatched;
+      document.getElementById("todaysAds").textContent = `${todayAds} / 10`;
+      document.getElementById("referrals").textContent = referrals;
+
+      const refUrl = `https://t.me/${BOT_USERNAME}?start=ref_${userId}`;
+      document.getElementById("refLinkText").textContent = refUrl;
+
+      const completed = todayAds;
+      const remaining = Math.max(10 - todayAds, 0);
+      document.getElementById("watchProgressText").textContent = `Completed: ${completed} / 10`;
+      document.getElementById("watchStatusText").textContent =
+        remaining > 0 ? `${completed} ad complete. Remaining ${remaining} ads.` : `All 10 ads completed for today.`;
+
+      const completedBonus = data.completedBonusTasks || [];
+      document.querySelectorAll(".bonus-open-btn").forEach(btn => {
+        const key = btn.dataset.key;
+        if (completedBonus.includes(key)) {
+          btn.textContent = "Completed";
+          btn.disabled = true;
+          btn.style.opacity = ".6";
+        }
+      });
+
+      const completedPremium = data.completedPremiumTasks || [];
+      document.querySelectorAll(".premium-submit-btn").forEach(btn => {
+        const key = btn.dataset.key;
+        if (completedPremium.includes(key)) {
+          btn.textContent = "Completed";
+          btn.disabled = true;
+          btn.style.opacity = ".6";
+        }
+      });
+    }
+
+    await loadUserData();
+
     document.getElementById("copyLinkBtn").addEventListener("click", async () => {
+      const refUrl = `https://t.me/${BOT_USERNAME}?start=ref_${userId}`;
       try {
         await navigator.clipboard.writeText(refUrl);
         alert("Referral link copied.");
-      } catch (e) {
+      } catch {
         alert("Copy failed.");
       }
     });
 
     document.getElementById("shareLinkBtn").addEventListener("click", async () => {
+      const refUrl = `https://t.me/${BOT_USERNAME}?start=ref_${userId}`;
       if (navigator.share) {
         try {
           await navigator.share({
@@ -817,15 +881,121 @@
             text: "Join with my referral link",
             url: refUrl
           });
-        } catch (e) {}
+        } catch {}
       } else {
         alert("Share not supported on this device.");
       }
     });
 
+    document.getElementById("watchNowBtn").addEventListener("click", () => {
+      if (todayAds >= 10) {
+        alert("You already completed 10 ads today.");
+        return;
+      }
+      const link = WATCH_AD_LINKS[currentAdIndex] || WATCH_AD_LINKS[0];
+      window.open(link, "_blank");
+    });
+
+    document.getElementById("claimWatchBtn").addEventListener("click", async () => {
+      if (todayAds >= 10) {
+        alert("All 10 ads already completed.");
+        return;
+      }
+
+      await updateDoc(userRef, {
+        balance: increment(0.1),
+        adsWatched: increment(1),
+        todayAds: increment(1),
+        currentAdIndex: increment(1)
+      });
+
+      await loadUserData();
+      const remaining = Math.max(10 - todayAds, 0);
+      alert(`1 ad complete. Remaining ${remaining} ads.`);
+    });
+
+    document.querySelectorAll(".bonus-open-btn").forEach(btn => {
+      btn.addEventListener("click", async () => {
+        const link = btn.dataset.link;
+        const key = btn.dataset.key;
+
+        const snap = await getDoc(userRef);
+        const data = snap.data();
+        const completed = data.completedBonusTasks || [];
+
+        if (completed.includes(key)) {
+          alert("This task already completed.");
+          return;
+        }
+
+        window.open(link, "_blank");
+
+        await updateDoc(userRef, {
+          balance: increment(0.1),
+          completedBonusTasks: [...completed, key]
+        });
+
+        await loadUserData();
+        alert("Bonus task completed. Balance added.");
+      });
+    });
+
+    document.querySelectorAll(".premium-start-btn").forEach(btn => {
+      btn.addEventListener("click", () => {
+        const link = btn.dataset.link;
+        window.open(link, "_blank");
+      });
+    });
+
+    document.querySelectorAll(".premium-submit-btn").forEach(btn => {
+      btn.addEventListener("click", async () => {
+        const index = btn.dataset.index;
+        const key = btn.dataset.key;
+        const input = document.querySelector(`.premium-code[data-index="${index}"]`);
+        const code = input.value.trim();
+
+        if (!code) {
+          alert("Enter secret code.");
+          return;
+        }
+
+        const realCode = localStorage.getItem("premium_secret_code");
+
+        if (!realCode) {
+          alert("First verify on the site and get your code.");
+          return;
+        }
+
+        if (code !== realCode) {
+          alert("Wrong secret code.");
+          return;
+        }
+
+        const snap = await getDoc(userRef);
+        const data = snap.data();
+        const completed = data.completedPremiumTasks || [];
+
+        if (completed.includes(key)) {
+          alert("This premium task already completed.");
+          return;
+        }
+
+        await updateDoc(userRef, {
+          balance: increment(0.1),
+          completedPremiumTasks: [...completed, key]
+        });
+
+        localStorage.removeItem("premium_secret_code");
+        input.value = "";
+
+        await loadUserData();
+        alert("Code verified. $0.1 added successfully.");
+      });
+    });
+
     const methodCards = document.querySelectorAll(".method-card");
     const withdrawWarn = document.getElementById("withdrawWarn");
-    let selectedMethod = "Rocket";
+    let selectedMethod = "bKash";
 
     methodCards.forEach(card => {
       card.addEventListener("click", () => {
@@ -838,19 +1008,19 @@
           accountInput.placeholder = "Enter Binance UID or Email";
         } else if (selectedMethod === "USDT") {
           accountInput.placeholder = "Enter USDT Wallet Address";
-        } else if (selectedMethod === "FaucetPay") {
-          accountInput.placeholder = "Enter FaucetPay Email";
+        } else if (selectedMethod === "WebMoney") {
+          accountInput.placeholder = "Enter WebMoney Wallet";
         } else {
-          accountInput.placeholder = "Enter Rocket Number";
+          accountInput.placeholder = "Enter bKash Number";
         }
       });
     });
 
-    document.getElementById("submitWithdrawBtn").addEventListener("click", () => {
+    document.getElementById("submitWithdrawBtn").addEventListener("click", async () => {
       const account = document.getElementById("withdrawAccount").value.trim();
       const amount = parseFloat(document.getElementById("withdrawAmount").value);
 
-      if (referralCount < 15) {
+      if (referrals < 15) {
         withdrawWarn.style.display = "block";
         withdrawWarn.textContent = "You need 15 referrals to withdraw.";
         return;
@@ -875,25 +1045,25 @@
       }
 
       withdrawWarn.style.display = "none";
-      alert(`Withdraw request submitted!\nMethod: ${selectedMethod}\nAccount: ${account}\nAmount: $${amount}`);
+
+      await addDoc(collection(db, "withdraw"), {
+        userId,
+        name: userName,
+        amount,
+        method: selectedMethod,
+        account,
+        status: "pending",
+        createdAt: Date.now()
+      });
+
+      await updateDoc(userRef, {
+        balance: balance - amount
+      });
+
+      await loadUserData();
+      alert("Withdraw request submitted.");
       closeModal("withdrawModal");
     });
   </script>
-  <script type="module">
-import { initializeApp } from "https://www.gstatic.com/firebasejs/12.10.0/firebase-app.js";
-import { getFirestore } from "https://www.gstatic.com/firebasejs/12.10.0/firebase-firestore.js";
-
-const firebaseConfig = {
-apiKey: "AIzaSyDZDkDv9STQedBujp_BMjvyUlv42TLnOys",
-authDomain: "trick-earn-pro.firebaseapp.com",
-projectId: "trick-earn-pro",
-storageBucket: "trick-earn-pro.firebasestorage.app",
-messagingSenderId: "453536865495",
-appId: "1:453536865495:web:24157b265d5718b05e6492"
-};
-
-const app = initializeApp(firebaseConfig);
-const db = getFirestore(app);
-</script>
 </body>
-        </html>
+</html>
