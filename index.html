@@ -1,32 +1,588 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-<title>Trick Earn Pro</title>
-<script src="https://telegram.org/js/telegram-web-app.js"></script>
-<style>
-body{font-family:sans-serif;background:#111;color:white;text-align:center}
-.card{background:#222;padding:20px;margin:20px;border-radius:10px}
-button{padding:10px 20px;border:none;border-radius:10px;background:#3b82f6;color:white}
-</style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Trick Earn Pro</title>
+  <script src="https://telegram.org/js/telegram-web-app.js"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    :root {
+      --bg: #f2f4f8;
+      --card: #ffffff;
+      --text: #161616;
+      --muted: #6b7280;
+      --blue1: #1d8fff;
+      --blue2: #24c0ff;
+      --blue3: #0a7dff;
+      --border: #e6e9ef;
+      --shadow: 0 10px 25px rgba(18, 38, 63, 0.08);
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      max-width: 480px;
+      margin: 0 auto;
+      min-height: 100vh;
+      padding-bottom: 95px;
+    }
+
+    .app {
+      padding: 18px 16px 0;
+    }
+
+    .topbar {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 18px;
+    }
+
+    .avatar {
+      width: 54px;
+      height: 54px;
+      border-radius: 50%;
+      overflow: hidden;
+      background: linear-gradient(135deg, #2563eb, #38bdf8);
+      flex-shrink: 0;
+      border: 3px solid #fff;
+      box-shadow: var(--shadow);
+    }
+
+    .avatar img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .welcome h2 {
+      font-size: 17px;
+      font-weight: 800;
+      line-height: 1.3;
+      margin-bottom: 5px;
+    }
+
+    .welcome p {
+      font-size: 14px;
+      color: var(--muted);
+      font-weight: 500;
+    }
+
+    .balance-card {
+      position: relative;
+      overflow: hidden;
+      background: linear-gradient(135deg, var(--blue3), var(--blue2));
+      border-radius: 30px;
+      padding: 28px 24px;
+      color: #fff;
+      box-shadow: 0 15px 35px rgba(29, 143, 255, 0.25);
+      margin-bottom: 16px;
+      min-height: 170px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .balance-card::before,
+    .balance-card::after {
+      content: "";
+      position: absolute;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.12);
+    }
+
+    .balance-card::before {
+      width: 180px;
+      height: 180px;
+      right: -70px;
+      top: 20px;
+    }
+
+    .balance-card::after {
+      width: 120px;
+      height: 120px;
+      right: 20px;
+      bottom: -35px;
+    }
+
+    .balance-card .label {
+      font-size: 16px;
+      font-weight: 500;
+      opacity: 0.95;
+      margin-bottom: 10px;
+      z-index: 1;
+    }
+
+    .balance-card .amount {
+      font-size: 56px;
+      line-height: 1;
+      font-weight: 800;
+      letter-spacing: -2px;
+      z-index: 1;
+    }
+
+    .stats {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 12px;
+      margin-bottom: 18px;
+    }
+
+    .stat-card {
+      background: var(--card);
+      border-radius: 24px;
+      padding: 18px 10px;
+      text-align: center;
+      box-shadow: var(--shadow);
+      min-height: 132px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      border: 1px solid var(--border);
+    }
+
+    .stat-icon {
+      width: 42px;
+      height: 42px;
+      border-radius: 14px;
+      background: rgba(29, 143, 255, 0.12);
+      color: var(--blue3);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 12px;
+      font-size: 22px;
+      font-weight: 700;
+    }
+
+    .stat-value {
+      font-size: 19px;
+      font-weight: 800;
+      margin-bottom: 5px;
+    }
+
+    .stat-label {
+      font-size: 12px;
+      color: var(--muted);
+      font-weight: 700;
+      letter-spacing: .3px;
+      text-transform: uppercase;
+      line-height: 1.25;
+    }
+
+    .task-card,
+    .panel {
+      background: var(--card);
+      border-radius: 28px;
+      padding: 22px 18px 18px;
+      box-shadow: var(--shadow);
+      border: 1px solid var(--border);
+      margin-bottom: 18px;
+    }
+
+    .section-title {
+      font-size: 18px;
+      font-weight: 800;
+      margin-bottom: 18px;
+    }
+
+    .break-btn {
+      width: 100%;
+      border: none;
+      background: #9f9fa7;
+      color: #fff;
+      padding: 20px 16px;
+      border-radius: 24px;
+      font-size: 17px;
+      font-weight: 800;
+      margin-bottom: 14px;
+      cursor: pointer;
+    }
+
+    .join-btn,
+    .action-btn {
+      width: 100%;
+      border: 3px solid var(--blue3);
+      background: #fff;
+      color: var(--blue3);
+      padding: 18px 16px;
+      border-radius: 24px;
+      font-size: 17px;
+      font-weight: 800;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+    }
+
+    .action-btn {
+      margin-top: 14px;
+    }
+
+    .panel h3 {
+      font-size: 17px;
+      margin-bottom: 12px;
+      font-weight: 800;
+    }
+
+    .row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 12px 0;
+      border-bottom: 1px solid #eef1f5;
+      font-size: 14px;
+      gap: 10px;
+    }
+
+    .row:last-child {
+      border-bottom: none;
+      padding-bottom: 0;
+    }
+
+    .row span:last-child {
+      font-weight: 700;
+      color: var(--blue3);
+      text-align: right;
+    }
+
+    .small {
+      font-size: 13px;
+      color: var(--muted);
+      margin-top: 6px;
+      line-height: 1.5;
+      word-break: break-word;
+    }
+
+    .hidden {
+      display: none;
+    }
+
+    .notice {
+      margin-top: 14px;
+      padding: 14px;
+      border-radius: 18px;
+      background: #f5f9ff;
+      border: 1px solid #dbeafe;
+      font-size: 13px;
+      color: #1e3a8a;
+      line-height: 1.5;
+      font-weight: 600;
+    }
+
+    .bottom-nav {
+      position: fixed;
+      left: 50%;
+      transform: translateX(-50%);
+      bottom: 0;
+      width: 100%;
+      max-width: 480px;
+      background: rgba(255, 255, 255, 0.96);
+      backdrop-filter: blur(10px);
+      border-top: 1px solid #e8ebf0;
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      padding: 10px 6px 12px;
+      z-index: 50;
+    }
+
+    .nav-item {
+      border: none;
+      background: transparent;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      color: #7b8190;
+      font-size: 11px;
+      font-weight: 700;
+      cursor: pointer;
+      padding: 6px 2px;
+      border-radius: 14px;
+    }
+
+    .nav-item .icon {
+      font-size: 22px;
+      line-height: 1;
+    }
+
+    .nav-item.active {
+      color: var(--blue3);
+    }
+
+    @media (max-width: 360px) {
+      .balance-card .amount {
+        font-size: 44px;
+      }
+
+      .stat-card {
+        min-height: 120px;
+        padding: 14px 8px;
+      }
+
+      .stat-value {
+        font-size: 17px;
+      }
+    }
+  </style>
 </head>
-
 <body>
+  <div class="app">
+    <div class="topbar">
+      <div class="avatar">
+        <img id="profilePhoto" src="https://i.pravatar.cc/100?img=12" alt="profile">
+      </div>
+      <div class="welcome">
+        <h2 id="welcomeText">Welcome, User</h2>
+        <p>Earn rewards by completing daily tasks</p>
+      </div>
+    </div>
 
-<h2>Trick Earn Pro</h2>
+    <div id="homePage">
+      <div class="balance-card">
+        <div class="label">Your Balance</div>
+        <div class="amount" id="balanceAmount">$0.00</div>
+      </div>
 
-<div class="card">
-<h3>Balance: $0.00</h3>
-<p>Welcome to earning dashboard</p>
-</div>
+      <div class="stats">
+        <div class="stat-card">
+          <div class="stat-icon">📺</div>
+          <div class="stat-value" id="adsWatched">10</div>
+          <div class="stat-label">Ads Watched</div>
+        </div>
 
-<button>Daily Task</button>
-<button>Refer</button>
-<button>Withdraw</button>
+        <div class="stat-card">
+          <div class="stat-icon">📅</div>
+          <div class="stat-value" id="todaysAds">10 / 10</div>
+          <div class="stat-label">Today's Ads</div>
+        </div>
 
-<script>
-let tg = window.Telegram.WebApp;
-tg.expand();
-</script>
+        <div class="stat-card">
+          <div class="stat-icon">👥</div>
+          <div class="stat-value" id="referrals">0</div>
+          <div class="stat-label">Referrals</div>
+        </div>
+      </div>
 
+      <div class="task-card">
+        <div class="section-title">Today's Task</div>
+        <button class="break-btn" id="breakBtn">▶ Break: 46m 44s</button>
+        <button class="join-btn" id="joinChannelBtn">📨 Join Channel</button>
+      </div>
+
+      <div class="panel">
+        <h3>Quick Info</h3>
+        <div class="row"><span>Withdraw Rule</span><span>15 Referrals Required</span></div>
+        <div class="row"><span>First Milestone</span><span>6 Referrals</span></div>
+        <div class="row"><span>Final Milestone</span><span>15 Referrals</span></div>
+      </div>
+    </div>
+
+    <div id="withdrawPage" class="hidden panel">
+      <h3>Withdraw</h3>
+      <div class="row"><span>Current Balance</span><span id="withdrawBalance">$0.00</span></div>
+      <div class="row"><span>Your Referrals</span><span id="withdrawReferrals">0</span></div>
+      <div class="row"><span>Status</span><span id="withdrawStatus">Locked</span></div>
+      <div class="notice" id="withdrawMessage">
+        Complete 6 referrals first. After 6 referrals, your target will become 15 referrals. Withdraw will only unlock after 15 total referrals.
+      </div>
+      <button class="action-btn" id="withdrawBtn">Withdraw Request</button>
+    </div>
+
+    <div id="historyPage" class="hidden panel">
+      <h3>History</h3>
+      <div class="row"><span>Ad Reward</span><span>+$0.20</span></div>
+      <div class="row"><span>Referral Bonus</span><span>+$0.00</span></div>
+      <div class="row"><span>Withdraw</span><span>Pending</span></div>
+    </div>
+
+    <div id="invitePage" class="hidden panel">
+      <h3>Invite Friends</h3>
+      <div class="row"><span>Total Referrals</span><span id="inviteRefCount">0</span></div>
+      <div class="row"><span>Current Target</span><span id="targetText">6 Referrals</span></div>
+      <p class="small" id="refLink">https://t.me/TrickEarnProBot?start=ref_123456</p>
+      <button class="action-btn" id="copyRefBtn">Copy Referral Link</button>
+      <div class="notice" id="inviteMessage">
+        Complete 6 referrals first. Then your next target will be 15 referrals.
+      </div>
+    </div>
+
+    <div id="webTaskPage" class="hidden panel">
+      <h3>Web Task</h3>
+      <div class="row"><span>Visit Website</span><span>+$0.10</span></div>
+      <div class="row"><span>Watch Sponsored Page</span><span>+$0.15</span></div>
+      <p class="small">You can connect real tasks here later.</p>
+    </div>
+
+    <div id="dailyTaskPage" class="hidden panel">
+      <h3>Daily Task</h3>
+      <div class="row"><span>Daily Check-In</span><span>+$0.05</span></div>
+      <div class="row"><span>Watch 10 Ads</span><span>+$0.50</span></div>
+      <div class="row"><span>Join Telegram Channel</span><span>+$0.10</span></div>
+    </div>
+  </div>
+
+  <div class="bottom-nav">
+    <button class="nav-item" data-page="withdrawPage">
+      <div class="icon">💸</div>
+      <div>Withdraw</div>
+    </button>
+    <button class="nav-item" data-page="historyPage">
+      <div class="icon">🕘</div>
+      <div>History</div>
+    </button>
+    <button class="nav-item" data-page="invitePage">
+      <div class="icon">👤</div>
+      <div>Invite</div>
+    </button>
+    <button class="nav-item" data-page="webTaskPage">
+      <div class="icon">🖥️</div>
+      <div>Web Task</div>
+    </button>
+    <button class="nav-item active" data-page="dailyTaskPage">
+      <div class="icon">⭐</div>
+      <div>Daily Task</div>
+    </button>
+  </div>
+
+  <script>
+    const tg = window.Telegram?.WebApp;
+    if (tg) {
+      tg.expand();
+      tg.ready();
+    }
+
+    const BOT_USERNAME = "TrickEarnProBot";
+    const CHANNEL_LINK = "https://t.me/TrickEarnAds";
+
+    let userId = "123456";
+    let userName = "User";
+    let userPhoto = "https://i.pravatar.cc/100?img=12";
+
+    // Demo data
+    let balance = 0.00;
+    let referralCount = 0;
+
+    if (tg && tg.initDataUnsafe && tg.initDataUnsafe.user) {
+      const user = tg.initDataUnsafe.user;
+      userId = user.id ? String(user.id) : "123456";
+      userName = user.first_name || "User";
+      userPhoto = user.photo_url || userPhoto;
+
+      document.getElementById("welcomeText").textContent = `Welcome, ${userName}`;
+      document.getElementById("profilePhoto").src = userPhoto;
+    }
+
+    const refCode = "ref_" + userId;
+    const refUrl = `https://t.me/${BOT_USERNAME}?start=${refCode}`;
+    document.getElementById("refLink").textContent = refUrl;
+
+    function updateUI() {
+      document.getElementById("balanceAmount").textContent = `$${balance.toFixed(2)}`;
+      document.getElementById("withdrawBalance").textContent = `$${balance.toFixed(2)}`;
+      document.getElementById("referrals").textContent = referralCount;
+      document.getElementById("inviteRefCount").textContent = referralCount;
+      document.getElementById("withdrawReferrals").textContent = referralCount;
+
+      const withdrawStatus = document.getElementById("withdrawStatus");
+      const withdrawMessage = document.getElementById("withdrawMessage");
+      const targetText = document.getElementById("targetText");
+      const inviteMessage = document.getElementById("inviteMessage");
+
+      if (referralCount < 6) {
+        targetText.textContent = "6 Referrals";
+        withdrawStatus.textContent = "Locked";
+        withdrawMessage.textContent = "Complete 6 referrals first. After 6 referrals, your target will become 15 referrals. Withdraw will only unlock after 15 total referrals.";
+        inviteMessage.textContent = "Complete 6 referrals first. Then your next target will be 15 referrals.";
+      } else if (referralCount >= 6 && referralCount < 15) {
+        targetText.textContent = "15 Referrals";
+        withdrawStatus.textContent = "Locked";
+        withdrawMessage.textContent = `You completed 6 referrals. Now complete 15 total referrals. Current referrals: ${referralCount}/15. Withdraw is still locked.`;
+        inviteMessage.textContent = `First milestone completed. Now your final target is 15 referrals. Current: ${referralCount}/15.`;
+      } else {
+        targetText.textContent = "Target Completed";
+        withdrawStatus.textContent = "Unlocked";
+        withdrawMessage.textContent = `Congratulations! You completed ${referralCount} referrals. Withdraw is now available.`;
+        inviteMessage.textContent = "Referral target completed. You can now request withdraw.";
+      }
+    }
+
+    updateUI();
+
+    const navItems = document.querySelectorAll(".nav-item");
+
+    function showPage(pageId, showHome = false) {
+      document.getElementById("homePage").classList.toggle("hidden", !showHome);
+
+      ["withdrawPage", "historyPage", "invitePage", "webTaskPage", "dailyTaskPage"].forEach(id => {
+        document.getElementById(id).classList.add("hidden");
+      });
+
+      if (!showHome) {
+        document.getElementById(pageId).classList.remove("hidden");
+      }
+
+      navItems.forEach(item => item.classList.remove("active"));
+      navItems.forEach(item => {
+        if (item.dataset.page === pageId) item.classList.add("active");
+      });
+    }
+
+    navItems.forEach(item => {
+      item.addEventListener("click", () => {
+        const pageId = item.dataset.page;
+        if (pageId === "dailyTaskPage") {
+          showPage(pageId, true);
+        } else {
+          showPage(pageId, false);
+        }
+      });
+    });
+
+    document.getElementById("joinChannelBtn").addEventListener("click", () => {
+      window.open(CHANNEL_LINK, "_blank");
+    });
+
+    document.getElementById("breakBtn").addEventListener("click", () => {
+      alert("Here you can add real break timer logic later.");
+    });
+
+    document.getElementById("copyRefBtn").addEventListener("click", async () => {
+      try {
+        await navigator.clipboard.writeText(refUrl);
+        alert("Referral link copied successfully.");
+      } catch (e) {
+        alert("Copy failed. Please copy manually.");
+      }
+    });
+
+    document.getElementById("withdrawBtn").addEventListener("click", () => {
+      if (referralCount < 15) {
+        alert(`Withdraw locked. You need 15 referrals. Current referrals: ${referralCount}`);
+      } else {
+        alert("Withdraw request submitted successfully.");
+      }
+    });
+
+    /*
+      TEST:
+      let referralCount = 0;   -> target 6
+      let referralCount = 6;   -> target 15
+      let referralCount = 15;  -> withdraw unlock
+    */
+  </script>
 </body>
 </html>
