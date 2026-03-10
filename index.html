@@ -881,6 +881,7 @@
   </script>
   <script type="module">
 import { initializeApp } from "https://www.gstatic.com/firebasejs/12.10.0/firebase-app.js";
+import { getFirestore } from "https://www.gstatic.com/firebasejs/12.10.0/firebase-firestore.js";
 
 const firebaseConfig = {
 apiKey: "AIzaSyDZDkDv9STQedBujp_BMjvyUlv42TLnOys",
@@ -892,6 +893,7 @@ appId: "1:453536865495:web:24157b265d5718b05e6492"
 };
 
 const app = initializeApp(firebaseConfig);
+const db = getFirestore(app);
 </script>
 </body>
         </html>
